@@ -1,4 +1,6 @@
 --Administrators--
 MagmaMc
 
---BannedPlayers
+--BannedPlayers--
+kingbananacat
+fragoutsentry

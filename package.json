@@ -1,7 +1,8 @@
 {
 	"name" : "net.magma-mc.adminutil",
 	"displayName" : "MagmaMc.AdminUtil",
-	"version" : "0.0.1",
+	"version" : "0.1.0",
+    "url": "https://github.com/MagmaMcNet/AdminUtil.git",
 	"unity" : "2019.4",
 	"description" : "Contains A Base Framework For Creating Administrator Tools In Your World",
 	"author" : {
@@ -10,8 +11,7 @@
 		"url" : "https://magmamcnet.github.io/VPM/"
 	},
 	"vpmDependencies" : {
-        "com.vrchat.worlds": "^3.2.0",
-		"com.vrchat.udonsharp" : "^1.0.0"
+        "com.vrchat.worlds": "^3.3.0"
 	},
 	"samples" : [],
 	"legacyFolders" : { }
