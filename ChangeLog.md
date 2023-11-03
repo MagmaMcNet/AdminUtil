@@ -8,4 +8,3 @@
 ## Added ConfigRequestHandler
 
 - Used For A Base Of Requesting A MAC (_Magma's Array Config Format_)
-- 

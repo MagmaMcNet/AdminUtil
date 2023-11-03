@@ -1,7 +1,6 @@
-﻿{
-	"name": "MagmaMc.AdminUtil",
+{
+    "name": "MagmaMc.AdminUtil",
     "references": [
-        "Unity.TextMeshPro",
         "VRC.Udon",
         "UdonSharp.Runtime",
         "UdonSharp.Editor"

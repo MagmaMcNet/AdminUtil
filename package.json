@@ -1,18 +1,18 @@
 {
-	"name" : "net.magma-mc.adminutil",
-	"displayName" : "MagmaMc.AdminUtil",
-	"version" : "0.1.0",
-    "url": "https://github.com/MagmaMcNet/AdminUtil.git",
-	"unity" : "2019.4",
-	"description" : "Contains A Base Framework For Creating Administrator Tools In Your World",
-	"author" : {
-		"name" : "MagmaMc",
-		"email" : "magma.mc@magma-mc.net",
-		"url" : "https://magmamcnet.github.io/VPM/"
-	},
-	"vpmDependencies" : {
-        "com.vrchat.worlds": "^3.3.0"
-	},
-	"samples" : [],
-	"legacyFolders" : { }
+  "name": "net.magma-mc.adminutil",
+  "displayName": "MagmaMc.AdminUtil",
+  "version": "0.2.0",
+  "url": "https://github.com/MagmaMcNet/AdminUtil.git",
+  "unity": "2019.4",
+  "description": "Contains A Base Framework For Creating Administrator Tools In Your World",
+  "author": {
+    "name": "MagmaMc",
+    "email": "magma.mc@magma-mc.net",
+    "url": "https://magmamcnet.github.io/VPM/"
+  },
+  "vpmDependencies": {
+    "com.vrchat.worlds": "^3.3.0"
+  },
+  "samples": [],
+  "legacyFolders": {}
 }

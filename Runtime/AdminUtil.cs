@@ -40,26 +40,6 @@ namespace MagmaMc.AdminUtil
         public bool BannedListContains(VRCPlayerApi Player) => ArrayContains(BannedList, Player.displayName, false);
         public bool AdminListContains(int Player) => ArrayContains(AdminList, VRCPlayerApi.GetPlayerById(Player).displayName, false);
         public bool BannedListContains(int Player) => ArrayContains(BannedList, VRCPlayerApi.GetPlayerById(Player).displayName, false);
-        private static bool ArrayContains(string[] array, string value, bool CaptialSensitve = true, bool WeakCheck = false)
-        {
-            if (!CaptialSensitve)
-                value = value.ToLower();
-            foreach (string item in array)
-            {
-                string Item = !CaptialSensitve ? item.ToLower() : item;
-                if (WeakCheck)
-                {
-                    if (Item.Contains(value))
-                        return true;
-                }
-                else
-                {
-                    if (Item == value)
-                        return true;
-                }
-            }
-            return false;
-        }
 
     }
 }

@@ -8,9 +8,9 @@ namespace MagmaMc.AdminUtil
     public class ConfigRequestHandler: UdonSharpBehaviour
     {
         [Tooltip("StringDownloader UdonGraph Program")]
-        [SerializeField] protected UdonBehaviour StringDownloader;
+        [SerializeField] public UdonBehaviour StringDownloader;
         [Tooltip("Raw URL For Config It Is Recommended To Use Github.io To Host The Files")]
-        [SerializeField] protected VRCUrl ConfigURL = new VRCUrl("https://magmamcnet.github.io/AdminUtil/PlayerManager.example.txt");
+        [SerializeField] public VRCUrl ConfigURL = new VRCUrl("https://magmamcnet.github.io/AdminUtil/PlayerManager.example.txt");
         [Tooltip("How Long It Will Wait To Send New Request To Download New Config From The Server")]
         [Range(4, byte.MaxValue)]
         [SerializeField] public byte DownloadDelay = 10;
@@ -20,7 +20,7 @@ namespace MagmaMc.AdminUtil
         /// <param name="ConfigData"></param>
         public virtual void OnStringDownloaded(string ConfigData)
         {
-
+            
         }
         public void OnStringFailed()
         {
@@ -42,6 +42,26 @@ namespace MagmaMc.AdminUtil
             string DownloadedString = (string)StringDownloader.GetProgramVariable("StringDownloaded");
             OnStringDownloaded(DownloadedString);
             StringDownloader.SendCustomEventDelayedSeconds("InvokeDownload", DownloadDelay);
+        }
+        protected static bool ArrayContains(string[] array, string value, bool CaptialSensitve = true, bool WeakCheck = false)
+        {
+            if (!CaptialSensitve)
+                value = value.ToLower();
+            foreach (string item in array)
+            {
+                string Item = !CaptialSensitve ? item.ToLower() : item;
+                if (WeakCheck)
+                {
+                    if (Item.Contains(value))
+                        return true;
+                }
+                else
+                {
+                    if (Item == value)
+                        return true;
+                }
+            }
+            return false;
         }
     }
     public static class StringExtensions
