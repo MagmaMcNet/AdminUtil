@@ -2,7 +2,7 @@
 using UnityEngine;
 using VRC.SDKBase;
 
-public class ForceStay : UdonSharpBehaviour
+public class ForceStay: UdonSharpBehaviour
 {
     [Header("Util For Keeping Players In One Spot")]
     public uint MaxDistance = 15;
@@ -12,13 +12,13 @@ public class ForceStay : UdonSharpBehaviour
     {
         if (Vector3.Distance(Networking.LocalPlayer.GetPosition(), transform.position) > MaxDistance)
         {
-            Teleport(Networking.LocalPlayer, transform.position, (SetRotation ? transform.rotation : Networking.LocalPlayer.GetRotation()));
+            Teleport(Networking.LocalPlayer, transform.position, (SetRotation ? transform.rotation : Networking.LocalPlayer.GetRotation()), true);
             if (RemoveVelocity)
                 Networking.LocalPlayer.SetVelocity(Vector3.zero);
         }
     }
 
-    public static void Teleport(VRCPlayerApi player, Vector3 teleportPos, Quaternion teleportRot, bool lerpOnRemote)
+    public static void Teleport(VRCPlayerApi player, Vector3 teleportPos, Quaternion teleportRot, bool lerpOnRemote = false)
     {
         teleportRot = Quaternion.Euler(0, teleportRot.eulerAngles.y, 0);
 
