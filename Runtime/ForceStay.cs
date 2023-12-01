@@ -2,7 +2,7 @@
 using UnityEngine;
 using VRC.SDKBase;
 
-public class ForceStay: UdonSharpBehaviour
+public class ForceStay : UdonSharpBehaviour
 {
     [Header("Util For Keeping Players In One Spot")]
     public uint MaxDistance = 15;

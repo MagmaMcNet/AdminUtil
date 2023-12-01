@@ -2,5 +2,4 @@
 MagmaMc
 
 --BannedPlayers--
-kingbananacat
-fragoutsentry
+

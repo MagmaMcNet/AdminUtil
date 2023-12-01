@@ -1,2 +1,3 @@
 # MagmaMc.AdminUtil
- Contains A Base Framework For Creating Administrator Tools In Your World
+
+A Administration Framework For Vrchat Worlds.
