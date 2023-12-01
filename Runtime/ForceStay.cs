@@ -12,9 +12,23 @@ public class ForceStay : UdonSharpBehaviour
     {
         if (Vector3.Distance(Networking.LocalPlayer.GetPosition(), transform.position) > MaxDistance)
         {
-            Networking.LocalPlayer.TeleportTo(transform.position, (SetRotation ? transform.rotation : Networking.LocalPlayer.GetRotation()));
+            Teleport(Networking.LocalPlayer, transform.position, (SetRotation ? transform.rotation : Networking.LocalPlayer.GetRotation()));
             if (RemoveVelocity)
                 Networking.LocalPlayer.SetVelocity(Vector3.zero);
         }
+    }
+
+    public static void Teleport(VRCPlayerApi player, Vector3 teleportPos, Quaternion teleportRot, bool lerpOnRemote)
+    {
+        teleportRot = Quaternion.Euler(0, teleportRot.eulerAngles.y, 0);
+
+        Quaternion invPlayerRot = Quaternion.Inverse(player.GetRotation());
+
+        VRCPlayerApi.TrackingData origin = player.GetTrackingData(VRCPlayerApi.TrackingDataType.Origin);
+
+        Vector3 targetPos = teleportPos + teleportRot * invPlayerRot * (origin.position - player.GetPosition());
+        Quaternion targetRot = teleportRot * (invPlayerRot * origin.rotation);
+
+        player.TeleportTo(targetPos, targetRot, VRC_SceneDescriptor.SpawnOrientation.AlignRoomWithSpawnPoint, lerpOnRemote);
     }
 }
